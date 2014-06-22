@@ -17,6 +17,14 @@ class MasterTableViewController < UITableViewController
     navigationItem.rightBarButtonItem = addButton
     
     @datasource = []
+
+    # iCloud notification
+    NSNotificationCenter.defaultCenter.addObserver(self, selector:"did_finish_import:", name:CDQ::CDQContextManager::DID_FINISH_IMPORT, object:nil)
+  end
+
+  def dealloc
+    NSNotificationCenter.defaultCenter.removeObserver(self)
+    super
   end
 
 =begin
@@ -149,6 +157,10 @@ class MasterTableViewController < UITableViewController
   def reload_data
     @datasource = Event.default_scope.to_a
     self.tableView.reloadData
+  end
+  
+  def did_finish_import notification
+    reload_data
   end
   
 end
