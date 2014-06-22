@@ -18,7 +18,13 @@ class MasterTableViewController < UITableViewController
     
     @datasource = []
 
+
     # iCloud notification
+    
+    # It will be posted when the managed object context for iCloud was initialized.
+    NSNotificationCenter.defaultCenter.addObserver(self, selector:"did_initialize:", name:CDQ::CDQStoreManager::STORE_DID_INITIALIZE_NOTIFICATION, object:nil)
+    
+    # It will be posted when the data was synced.
     NSNotificationCenter.defaultCenter.addObserver(self, selector:"did_finish_import:", name:CDQ::CDQContextManager::DID_FINISH_IMPORT, object:nil)
   end
 
@@ -157,6 +163,10 @@ class MasterTableViewController < UITableViewController
   def reload_data
     @datasource = Event.default_scope.to_a
     self.tableView.reloadData
+  end
+  
+  def did_initialize notification
+    reload_data
   end
   
   def did_finish_import notification
