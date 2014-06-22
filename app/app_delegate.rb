@@ -22,7 +22,6 @@ class AppDelegate
 
   # Pop to the root view controller when the data was sycned.
   def did_finish_import notification
-NSLog "did_finish_import"
     @window.rootViewController.popToRootViewControllerAnimated true
   end
 
