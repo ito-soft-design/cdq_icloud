@@ -13,13 +13,20 @@ This is a test project of cdq which working with iCloud.
 ### Gems
 
 - [CDQ](https://github.com/infinitered/cdq)
+    - I'm working on my github repository (branch icloud2).[katsuyoshi/cdq - branch:icloud2](https://github.com/katsuyoshi/cdq/tree/icloud2)
+    - You should get it and run below commands
+    
+```
+$ gem build cdq.gemspec
+$ gem install cdq-0.1.9.gem
+```
+
+Current CDQ version is 0.1.9. You may change cdq-0.1.9.gem to current version.  (June 23, 2014)
+
 
 ## How to run it
 
 You need configure App ID, iCloud container and provisioning file at iOS Developer Program site.  
-I'm working on my github repository (branch icloud2).
-
-[katsuyoshi/cdq - branch:icloud2](https://github.com/katsuyoshi/cdq/tree/icloud2)
 
 
 - Create new App ID.  
