@@ -25,7 +25,7 @@ class MasterTableViewController < UITableViewController
     NSNotificationCenter.defaultCenter.addObserver(self, selector:"did_initialize:", name:CDQ::CDQStoreManager::STORE_DID_INITIALIZE_NOTIFICATION, object:nil)
     
     # It will be posted when the data was synced.
-    NSNotificationCenter.defaultCenter.addObserver(self, selector:"did_finish_import:", name:CDQ::CDQContextManager::DID_FINISH_IMPORT, object:nil)
+    NSNotificationCenter.defaultCenter.addObserver(self, selector:"did_finish_import:", name:CDQ::CDQContextManager::DID_FINISH_IMPORT_NOTIFICATION, object:nil)
   end
 
   def dealloc

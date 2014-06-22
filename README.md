@@ -54,7 +54,7 @@ If you obviously specify the iCloud container, write ```icloud_container: CONTAI
 
 Posted after the managed object context for was initialized. If you don't use iCloud it is called.
 
-### CDQ::CDQContextManager::DID_FINISH_IMPORT
+### CDQ::CDQContextManager::DID_FINISH_IMPORT_NOTIFICATION
 
 Posted when the data was synced via iCloud.
 
