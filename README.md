@@ -25,9 +25,8 @@ I'm working on my github repository (branch icloud2).
 - Create new App ID.  
     - e.g. com.itosoft.cdqicloud  
 - Create iCloud container.
-    - e.g. com.itosoft.cdqicloud
-- Configure App ID which works with iCloud container.
     - e.g. iCloud.com.itosoft.cdqicloud
+- Configure App ID which works with iCloud container.
 - Create a provisioning profile for development.
 - Replace app.identifier, app.codesign_certificate, app.provisioning_profile in Rakefile.
 - Run below commands.
