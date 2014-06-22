@@ -17,9 +17,9 @@ This is a test project of cdq which working with iCloud.
 ## How to run it
 
 You need configure App ID, iCloud container and provisioning file at iOS Developer Program site.  
-I'm working on my github repository (branch icloud).
+I'm working on my github repository (branch icloud2).
 
-[katsuyoshi/cdq](https://github.com/katsuyoshi/cdq)
+[katsuyoshi/cdq - branch:icloud2](https://github.com/katsuyoshi/cdq/tree/icloud2)
 
 
 - Create new App ID.  
