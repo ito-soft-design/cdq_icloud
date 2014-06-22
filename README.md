@@ -44,7 +44,7 @@ Install this app to more than two iOS devices. You can make sure the data is syn
 
 You just write ```icloud: ture``` to cdq.yml file.
 
-If you obviously specify the iCloud container, write ```icloud_container: CONTAINER_IDENTIFIER``` to cqd.yml file.
+If you obviously specify the iCloud container, write ```icloud_container: CONTAINER_IDENTIFIER``` to cdq.yml file.
 
 
 
