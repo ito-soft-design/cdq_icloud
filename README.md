@@ -17,13 +17,13 @@ This is a test project of cdq which working with iCloud.
 ## How to run it
 
 You need configure App ID, iCloud container and provisioning file at iOS Developer Program site.  
-I'm working on my github reposition, branch icloud.
+I'm working on my github repository (branch icloud).
 
 [katsuyoshi/cdq](https://github.com/katsuyoshi/cdq)
 
 
-- Create new App ID.
-  e.g. com.itosoft.cdqicloud
+- Create new App ID.  
+    - e.g. com.itosoft.cdqicloud  
 - Create iCloud container.
     - e.g. com.itosoft.cdqicloud
 - Configure App ID which works with iCloud container.
@@ -37,7 +37,7 @@ $ bundle
 $ rake device
 ```
 
-You install this app to more than 2 iOS devices. You can make sure the data is synced.
+Install this app to more than two iOS devices. You can make sure the data is synced.
 
 
 ## How to configure icloud
@@ -58,4 +58,9 @@ Posted after the managed object context for was initialized. If you don't use iC
 
 Posted when the data was synced via iCloud.
 
+
+## Reference
+
+- [iOS How-To : Using Core Data with iCloud](http://goddess-gate.com/dc2/index.php/post/452)
+- [iCloud sync fails with “CoreData: Ubiquity: Invalid option: the value for NSPersistentStoreUbiquitousContentNameKey should not contain periods”](http://stackoverflow.com/questions/19209504/icloud-sync-fails-with-coredata-ubiquity-invalid-option-the-value-for-nspers)
 
