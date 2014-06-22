@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class MasterTableViewController < UITableViewController
-
+  include CDQ
+  
 =begin
   def initWithStyle style
     super
@@ -8,12 +9,15 @@ class MasterTableViewController < UITableViewController
   end
 =end
 
-=begin
   def viewDidLoad
     super
-    # navigationItem.rightBarButtonItem = editButtonItem;
+    navigationItem.leftBarButtonItem = editButtonItem;
+
+    addButton = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemAdd, target:self, action:"insert_new_object:")
+    navigationItem.rightBarButtonItem = addButton
+    
+    @datasource = []
   end
-=end
 
 =begin
   def viewDidUnload
@@ -21,11 +25,10 @@ class MasterTableViewController < UITableViewController
   end
 =end
 
-=begin
   def viewWillAppear animated
     super
+    reload_data
   end
-=end
 
 =begin
   def viewDidAppear animated
@@ -70,11 +73,9 @@ class MasterTableViewController < UITableViewController
   end
 =end
   
-=begin
   def tableView tableView, numberOfRowsInSection:section
-    1
+    @datasource.size
   end
-=end
 
 =begin
   def tableView tableView, titleForHeaderInSection:section
@@ -82,14 +83,12 @@ class MasterTableViewController < UITableViewController
   end
 =end  
 
-=begin
   CellIdentifier = "Cell"
   def tableView tableView, cellForRowAtIndexPath:indexPath
     cell = tableView.dequeueReusableCellWithIdentifier CellIdentifier, forIndexPath:indexPath
-    cell.textLabel.text = "Ruby Motion"
+    cell.textLabel.text = @datasource[indexPath.row].time_stamp.to_s
     cell
   end
-=end
 
 =begin
   def tableView tableView, didSelectRowAtIndexPath:indexPath
@@ -131,5 +130,25 @@ class MasterTableViewController < UITableViewController
     end
   end
 =end
+
+  def prepareForSegue(segue, sender:sender)
+    case segue.identifier
+    when "showDetail"
+      index_path = tableView.indexPathForSelectedRow
+      segue.destinationViewController.detail_item = @datasource[index_path.row]
+    end
+  end
+  
+  def insert_new_object sender
+    event = Event.create(time_stamp:Time.now)
+    cdq.save
+    reload_data
+  end
+  
+  
+  def reload_data
+    @datasource = Event.default_scope.to_a
+    self.tableView.reloadData
+  end
   
 end
