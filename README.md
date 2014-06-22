@@ -52,7 +52,7 @@ If you obviously specify the iCloud container, write ```icloud_container: CONTAI
 
 ### CDQ::CDQStoreManager::STORE_DID_INITIALIZE_NOTIFICATION
 
-Posted after the managed object context for was initialized. If you don't use iCloud it is called.
+Posted after the managed object context was initialized.
 
 ### CDQ::CDQContextManager::DID_FINISH_IMPORT_NOTIFICATION
 
@@ -63,4 +63,5 @@ Posted when the data was synced via iCloud.
 
 - [iOS How-To : Using Core Data with iCloud](http://goddess-gate.com/dc2/index.php/post/452)
 - [iCloud sync fails with “CoreData: Ubiquity: Invalid option: the value for NSPersistentStoreUbiquitousContentNameKey should not contain periods”](http://stackoverflow.com/questions/19209504/icloud-sync-fails-with-coredata-ubiquity-invalid-option-the-value-for-nspers)
+- [Core Data with iCloud. Synchronisation problems. (MacOS vs iOS - conflicts)](http://stackoverflow.com/questions/8635499/core-data-with-icloud-synchronisation-problems-macos-vs-ios-conflicts)
 
