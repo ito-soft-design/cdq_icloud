@@ -134,16 +134,17 @@ class MasterTableViewController < UITableViewController
   end
 =end
   
-=begin
   def tableView tableView, commitEditingStyle:editingStyle, forRowAtIndexPath:indexPath
     case  editingStyle
     when UITableViewCellEditingStyleDelete
-      tableView.deleteRowsAtIndexPaths [indexPath], withRowAnimation:UITableViewRowAnimationFade
+      @datasource[indexPath.row].destroy
+      cdq.save
+      reload_datasource
+      tableView.deleteRowsAtIndexPaths [indexPath], withRowAnimation:UITableViewRowAnimationTop
     when UITableViewCellEditingStyleInsert
       # 
     end
   end
-=end
 
   def prepareForSegue(segue, sender:sender)
     case segue.identifier
@@ -156,14 +157,10 @@ class MasterTableViewController < UITableViewController
   def insert_new_object sender
     event = Event.create(time_stamp:Time.now)
     cdq.save
-    reload_data
+    reload_datasource
+    tableView.insertRowsAtIndexPaths [NSIndexPath.indexPathForRow(0,inSection:0)], withRowAnimation:UITableViewRowAnimationTop
   end
   
-  
-  def reload_data
-    @datasource = Event.default_scope.to_a
-    self.tableView.reloadData
-  end
   
   def did_initialize notification
     reload_data
@@ -173,4 +170,17 @@ class MasterTableViewController < UITableViewController
     reload_data
   end
   
+  
+  private
+  
+  def reload_datasource
+    @datasource = Event.default_scope.to_a
+  end
+  
+  def reload_data
+    reload_datasource
+    self.tableView.reloadData
+  end
+  
+
 end
