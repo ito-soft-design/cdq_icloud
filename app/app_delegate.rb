@@ -2,8 +2,7 @@ class AppDelegate
   include CDQ
 
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    stores = CDQStoreManager.new(iCloud:true)
-    CDQ.cdq.setup(stores:stores)
+    CDQ.cdq.stores.new(iCloud:true)
 
     # iCloud notification
     # It will be posted when the data was synced.
