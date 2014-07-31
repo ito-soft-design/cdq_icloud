@@ -2,7 +2,6 @@ class AppDelegate
   include CDQ
 
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    #CDQ.cdq.setup
     stores = CDQStoreManager.new(iCloud:true)
     CDQ.cdq.setup(stores:stores)
 
